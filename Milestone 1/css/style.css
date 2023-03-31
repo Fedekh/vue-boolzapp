@@ -89,14 +89,17 @@ li {
 
 /* !############################################################## */
 
-/* ?SECTION LEFT */
+
+
+/*! -------------------------------------SECTION LEFT--------------------------- */
+
 
 .header, .notifications, .search-bar{
     height: 50px;  /*sono indeciso se mettere percentuale o fissa*/
     background-color: #8c948b;
     padding: 0 10px;
     /* debug */
-    border: 1px solid rgb(19, 46, 201);
+    /* border: 1px solid rgb(19, 46, 201); */
 }
 
 /* --------------------------HEADER LEFT----------------------------- */
@@ -173,21 +176,33 @@ li {
     gap: 10px;
 }
 
-.chat-list .name{
+.chat-list .name, .header-right .name{
     font-size: 1rem;
     font-weight: bold;
 }
 
-.chat-list .last-chat, .chat-list .time {
+.chat-list .last-chat, .chat-list .time, .header-right .last-chat {
     font-size: .7rem;
     color: var(--icon-message);
 }
 
-.chat-list .time {
-    align-self: flex-start;
+.chat-list .time{
+    align-self: flex-start;    
 }
 
 
+/*! -------------------------------------SECTION RIGHT--------------------------- */
+
+/* ----------------------------------------HEADER RIGHT----------------------------- */
+
+.header-right-chat {
+    height: 100%;
+}
+
+#right .actions {
+    align-self: center;
+    gap: 20px;    
+}
 
 
 .window-chat{
