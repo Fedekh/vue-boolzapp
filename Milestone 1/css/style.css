@@ -47,6 +47,15 @@ img{
     border-radius: 50%;    
 }
 
+ul{
+    list-style-type: none;
+    padding: 0 10px;
+}
+
+li {
+    border: 1px solid violet;
+}
+
 
 /* !########################################################## */
 
@@ -84,7 +93,7 @@ img{
 
 .header, .notifications, .search-bar{
     height: 50px;  /*sono indeciso se mettere percentuale o fissa*/
-    background-color: #2f9c19;
+    background-color: #8c948b;
     padding: 0 10px;
     /* debug */
     border: 1px solid rgb(19, 46, 201);
@@ -92,10 +101,11 @@ img{
 
 /* --------------------------HEADER LEFT----------------------------- */
 
-.avatar {
+.main-avatar {
     gap: 10px;
     font-weight: bold;
 }
+
 /* ---------------NOTIFICATIONS------------------------------- */
 
 .notifications{
@@ -148,6 +158,7 @@ img{
     font-size: 14px; /* dimensione del carattere del placeholder */
  }
 
+
   /* -----------------CHAT LIST LEFT-------------------------------------- */
 
 .chat-list {
@@ -157,6 +168,27 @@ img{
     overflow-y: auto;
 
 }
+
+.chat{
+    gap: 10px;
+}
+
+.chat-list .name{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.chat-list .last-chat, .chat-list .time {
+    font-size: .7rem;
+    color: var(--icon-message);
+}
+
+.chat-list .time {
+    align-self: flex-start;
+}
+
+
+
 
 .window-chat{
     background-image: url(../img/mine.jpg);
