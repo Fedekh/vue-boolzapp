@@ -1,7 +1,7 @@
 // Oggi iniziamo a realizzare Boolzapp 
 // Milestone 1:
 // Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi)
- //e dall’interlocutore (bianco) assegnando due classi CSS diverse
+//e dall’interlocutore (bianco) assegnando due classi CSS diverse
 // Visualizzazione dinamica della lista contatti: tramite la direttiva v-for,
 // visualizzare nome e immagine di ogni contatto.
 // Consigli del giorno:
@@ -11,11 +11,11 @@
 //  La struttura realizzata mi faciliterà rendere il tutto dinamico? 
 //Forse mi serve una classe per distinguere i messaggi innviati da quelli ricevuti?
 
-const {createApp} = Vue;
+const { createApp } = Vue;
 
 createApp({
-    data(){
-        return{
+    data() {
+        return {
             contacts: [
                 {
                     name: 'Michele',
@@ -178,10 +178,22 @@ createApp({
                         }
                     ],
                 }
-            ]       
+            ]
         }
     },
-    methods:{
-        
+    methods: {
+        getLastMessage(contact) {
+            const lastMessage = contact.messages[contact.messages.length - 1];
+            return lastMessage ? lastMessage.message : '';
+        },
+        getLastMessageDate(contact) {
+            const lastMessage = contact.messages[contact.messages.length - 1];
+            if (lastMessage) {
+              const lastMessageTime = lastMessage.date.slice(11, 16); // il primo argomento indica l'indice di inizio della sottostringa (incluso), mentre il secondo argomento indica l'indice di fine della sottostringa (escluso).
+              return lastMessageTime;
+            }
+            return '';
+            }
+          
     }
 }).mount("#app");

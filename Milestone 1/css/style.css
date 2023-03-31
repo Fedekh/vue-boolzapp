@@ -58,6 +58,9 @@ img {
 ul {
     list-style-type: none;
     padding: 0 10px;
+    gap: 10px;
+    color: rgb(143, 137, 137);
+    font-size: .8rem;
 }
 
 
@@ -104,7 +107,7 @@ ul {
 .search-bar {
     height: 50px;
     /*sono indeciso se mettere percentuale o fissa*/
-    background-color: #8c948b;
+    background-color: #20696e;
     padding: 0 10px;
     /* debug */
     /* border: 1px solid rgb(19, 46, 201); */
@@ -183,7 +186,7 @@ ul {
 .chat-list {
     padding: 20px 0;
     height: calc(100% - 150px);
-    background-color: #343732;
+    background-color: #483347;
     overflow-y: auto;
 }
 

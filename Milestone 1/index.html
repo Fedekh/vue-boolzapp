@@ -66,19 +66,19 @@
 
                 <!-- Chat-list -->
                 <div class="chat-list">
-                    <ul v-if="contacts.length > 0">
+                    <ul v-if="contacts.length > 0" class="flex flex-column">
                         <li v-for="elemento in contacts" class="flex flex-between list-item-chat">
                             <section class="flex flex-between chat">
                                 <img :src="'img/avatar' + elemento.avatar + '.jpg'" :alt="elemento.avatar">
                                 <section class="flex flex-column">
-                                    <span class="name">{{elemento.name}}</span>
-                                    <span v-if="elemento.messages.length" class="last-chat">
-                                        Ultimo messaggio in chat: {{ elemento.messages.slice(-1)[0].date.split(' ')[0] }}
-                                    </span> <!--elemento.messages.slice(-1)[0] viene utilizzato per selezionare l'ultimo oggetto messaggio dall'array elemento.messages.-->
+                                    <span class="name">{{ elemento.name }}</span>
+                                    <span class="message">
+                                        Ultimo messaggio in chat: {{ this.getLastMessage(elemento) }}
+                                    </span>
                                 </section>
                             </section>
                             <span class="time">
-                                12:00
+                                {{ this.getLastMessageDate(elemento) }}
                             </span>
                         </li>
                     </ul>
