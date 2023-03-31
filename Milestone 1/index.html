@@ -73,12 +73,12 @@
                                 <section class="flex flex-column">
                                     <span class="name">{{ elemento.name }}</span>
                                     <span class="message">
-                                        Ultimo messaggio in chat: {{ this.getLastMessage(elemento) }}
+                                        Ultimo messaggio in chat: {{ getLastMessage(elemento) }}
                                     </span>
                                 </section>
                             </section>
                             <span class="time">
-                                {{ this.getLastMessageDate(elemento) }}
+                                {{ getLastMessageDate(elemento) }}
                             </span>
                         </li>
                     </ul>
