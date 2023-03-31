@@ -65,8 +65,8 @@
                 <!-- Chat-list -->
                 <div class="chat-list">
                     <ul>               
-                      <li class="flex flex-start list-item-chat">
-                        <section class="flex flex-start chat">
+                      <li class="flex flex-between list-item-chat">
+                        <section class="flex flex-between chat">
                             <img src="img/avatar_1.jpg" alt="">
                             <section class="flex flex-column">
                                 <span class="name">Michele</span>
@@ -111,8 +111,14 @@
                     ci saranno l'insieme dei messaggi scambiati tra user e contatti
                     
                 </div>
-                <div class="input-bar">
-                    qui ci saraà la text area centrale piu 2 icone agli estremi
+                <div class="input-area flex">
+                    <div class="data-input flex flex-between">
+                        <span class="emoji-icon"><i class="fa-solid fa-face-meh-blank fa-beat fa-2xl" style="color: #12ca7a;"></i></span>
+                        <span><i class="fa-solid fa-paperclip fa-2xl" style="color: #ff0000;"></i></span>
+                        <textarea id="message" class="large" placeholder="   Scrivi un messaggio, ma fai prima con un messaggio vocale &#x1F608;"></textarea>
+                        <span><i class="fa-solid fa-microphone fa-bounce fa-2xl" style="color: #1e54f6;"></i></span>
+
+                    </div>
                 </div>
 
             </div>
