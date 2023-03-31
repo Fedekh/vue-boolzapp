@@ -1,0 +1,78 @@
+/* VARIABLES */
+
+:root{
+
+    --header:#EAEAEA;
+    --icon-message:#B1B1B1;
+    --new-message:#8EDAFC;
+    --my-message:#D5F9BA;
+}
+
+/* COMMON*/
+/* linear-gradient([direzione], [colore1] [posizione1], [colore2] [posizione2], ...) sintassi di base */
+/* Il 180deg indica la direzione del gradiente, che va dal top verso il bottom dell'elemento. */
+
+#app {
+    background: linear-gradient(180deg, #009688 15%, #7e7f7c 10%);
+    height: 100vh;
+    width: 100%; 
+}
+
+.flex{
+    display: flex;
+}
+
+.flex-center{
+    justify-content: center;
+    align-items: center;   
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+ul{
+    list-style-type: none;
+}
+
+
+/* ?########################################################## */
+
+#wrapper{
+    width: 80%;
+    height: 90%;
+    /* debug */
+}
+
+#chat-list{
+    width: 40%; 
+    /* debug */
+    border: 1px solid rgb(228, 9, 9);
+
+}
+
+#right-window{
+    width: 60%;
+    /* debug */
+    border: 1px solid rgb(138, 65, 5);
+}
+
+
+.header, .notifications, .search-bar{
+    height: 50px;  /*sono indeciso se mettere percentuale o fissa*/
+    /* debug */
+    border: 1px solid rgb(19, 46, 201);
+}
+
+.chat-list {
+    padding: 20px 0;
+}
+
+.window-chat{
+    background-image: url(../img/mine.jpg);
+    height: calc(100% - 60px);
+}
+
+.input-bar{
+    height: 50px;
+}

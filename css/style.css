@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#app {
+    background: linear-gradient(180deg, #009688 10%, #7e7f7c 10%);
+    height: 100vh;
+    width: 100%;
+}
