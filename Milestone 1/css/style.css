@@ -60,12 +60,16 @@ ul{
 
 .header, .notifications, .search-bar{
     height: 50px;  /*sono indeciso se mettere percentuale o fissa*/
+    background-color: #dcdddb;
     /* debug */
     border: 1px solid rgb(19, 46, 201);
 }
 
 .chat-list {
     padding: 20px 0;
+    height: calc(100% - 50px);
+    background-color: #dcdddb;
+
 }
 
 .window-chat{
@@ -75,4 +79,8 @@ ul{
 
 .input-bar{
     height: 50px;
+    background-color: #dcdddb;
+    /* debug */
+    border: 1px solid rgb(19, 46, 201);
+
 }
