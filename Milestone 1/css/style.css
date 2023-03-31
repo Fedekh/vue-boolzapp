@@ -43,7 +43,7 @@
 }
 
 img{
-    width: 10%;
+    width: 40px;
     border-radius: 50%;    
 }
 
@@ -52,9 +52,6 @@ ul{
     padding: 0 10px;
 }
 
-li {
-    border: 1px solid violet;
-}
 
 
 /* !########################################################## */
@@ -66,14 +63,19 @@ li {
     /* debug */
 }
 
+#right {
+    width: 65%;
+    /* debug */
+    border: 1px solid rgb(138, 65, 5);
+}
 #left {
-    width: 40%; 
+    width: 35%; 
     /* debug */
     /* border: 1px solid rgb(228, 9, 9); */
 }
 
 #left > .header {
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 20px;
 }
 
@@ -81,17 +83,12 @@ li {
     gap: 10px;
 }
 
-#right {
-    width: 60%;
-    /* debug */
-    border: 1px solid rgb(138, 65, 5);
-}
 
 /* !############################################################## */
 
 
 
-/*! -------------------------------------SECTION LEFT--------------------------- */
+/*! --------------------SECTION LEFT--------------------------- */
 
 
 .header, .notifications, .search-bar{
@@ -102,11 +99,15 @@ li {
     /* border: 1px solid rgb(19, 46, 201); */
 }
 
-/* --------------------------HEADER LEFT----------------------------- */
+/* -------------HEADER LEFT----------------------------- */
 
 .main-avatar {
     gap: 10px;
     font-weight: bold;
+}
+
+#left .actions{
+    gap: 20px;
 }
 
 /* ---------------NOTIFICATIONS------------------------------- */
@@ -154,7 +155,7 @@ li {
   }
  
  .input-chat:focus {
-    width: 300px; /* larghezza dell'input quando è in focus */
+    width: 350px; /* larghezza dell'input quando è in focus */
  }
 
  .input-chat::placeholder {
@@ -191,9 +192,9 @@ li {
 }
 
 
-/*! -------------------------------------SECTION RIGHT--------------------------- */
+/*! -----------------------SECTION RIGHT--------------------------- */
 
-/* ----------------------------------------HEADER RIGHT----------------------------- */
+/* ---------------------------HEADER RIGHT----------------------------- */
 
 .header-right-chat {
     height: 100%;
@@ -204,6 +205,16 @@ li {
     gap: 20px;    
 }
 
+#right .header-right .header-right-chat img{
+    width: 40px;
+}
+
+#right .header-right .actions i{
+    color: var(--icon-message);
+
+}
+
+/* -----------------MAIN WINDOW CHAT------------------------- */
 
 .window-chat{
     background-image: url(../img/mine.jpg);
@@ -212,6 +223,8 @@ li {
     padding: 0 10px;
 
 }
+
+/* -----------------MAIN INPUT WRITE CHAT------------------------- */
 
 .input-bar{
     height: 50px;
