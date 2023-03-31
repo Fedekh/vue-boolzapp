@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,18 +10,19 @@
 
     <!-- FONTAWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
     <!-- CSS CUSTOM -->
     <link rel="stylesheet" href="css/style.css">
     <title>BURN OUT</title>
-    
+
 </head>
+
 <body>
     <!-- Macrocontainer di VueJS -->
     <div id="app" class="flex flex-center">
@@ -40,7 +42,7 @@
                     <div class="actions flex">
                         <a href=""><i class="fa-solid fa-arrows-rotate" style="color: #B1B1B1;"></i></a>
                         <a href=""><i class="fa-solid fa-message" style="color: #B1B1B1;"></i></a>
-                        <a href=""><i class="fa-solid fa-ellipsis-vertical" style="color: #B1B1B1;"></i></a>                   
+                        <a href=""><i class="fa-solid fa-ellipsis-vertical" style="color: #B1B1B1;"></i></a>
                     </div>
                 </div>
                 <!-- /HEADER LEFT -->
@@ -50,7 +52,7 @@
                     <a href=""><i class="fa-solid fa-bell-slash"></i></a>
                     <div id="action-message">
                         <span>Ricevi notifiche di nuovi messaggi</span>
-                        <p><a href="">Attiva notifiche desktop</a></p>                        
+                        <p><a href="">Attiva notifiche desktop</a></p>
                     </div>
                 </div>
                 <!-- /Notifications -->
@@ -64,19 +66,19 @@
 
                 <!-- Chat-list -->
                 <div class="chat-list">
-                    <ul>               
-                      <li class="flex flex-between list-item-chat">
-                        <section class="flex flex-between chat">
-                            <img src="img/avatar_1.jpg" alt="">
-                            <section class="flex flex-column">
-                                <span class="name">Michele</span>
-                                <span class="last-chat">Ultimo messaggio in chat</span>
+                    <ul>
+                        <li class="flex flex-between list-item-chat">
+                            <section class="flex flex-between chat">
+                                <img src="img/avatar_1.jpg" alt="">
+                                <section class="flex flex-column">
+                                    <span class="name">Michele</span>
+                                    <span class="last-chat">Ultimo messaggio in chat</span>
+                                </section>
                             </section>
-                        </section>
-                        <span class="time">
-                            12:00
-                        </span>
-                      </li>                      
+                            <span class="time">
+                                12:00
+                            </span>
+                        </li>
                     </ul>
                 </div>
                 <!-- /Chat-list -->
@@ -85,41 +87,79 @@
             </div>
             <!-- ?/Chat list LEFT -->
 
-            
+
             <!-- ?Window chat RIGHT -->
-            
+
             <div id="right" class="flex flex-column">
+
+                <!-- header right -->
                 <div class="header header-right">
                     <section class="header-right-chat flex flex-between">
-                      <div class="flex flex-start chat">
-                          <img src="img/avatar_1.jpg" alt="">
-                          <section class="flex flex-column">
-                              <span class="name">Michele</span>
-                              <span class="last-chat">Ultimo accesso alle 12</span>
-                          </section>
+                        <div class="flex flex-start chat">
+                            <img src="img/avatar_1.jpg" alt="">
+                            <section class="flex flex-column">
+                                <span class="name">Michele</span>
+                                <span class="last-chat">Ultimo accesso alle 12</span>
+                            </section>
+                        </div>
+                        <span class="actions flex flex-start">
+                            <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce"
+                                    style="color: var(#B1B1B1);"></i></a>
+                            <a href=""><i class="fa-solid fa-message" style="color: #B1B1B1;"></i></a>
+                            <a href=""><i class="fa-solid fa-ellipsis-vertical" style="color: #B1B1B1;"></i></a>
+                        </span>
+                    </section>
+                </div>
+                <!-- /header right -->
+
+
+                <!-- Main window CHAT -->
+                <div class="window-chat">
+                    <div class="chat-container flex flex-column">                        
+                        <div class="outgoing-message flex flex-end">
+                            <div class="message flex">
+                                <p class="message-text">Lotate perciunt accusamus.ESCI IL CANE Delectus.</p>
+                                <p class="message-time">10:30</p>
+                            </div>
+                        </div>
+                        <div class="outgoing-message flex flex-end">
+                            <div class="message flex">
+                                <p class="message-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae tenetur eum temporibus non, consequuntur sapiente exercitationem ea asperiores, quisquam vero corporis est nobis aperiam voluptate quasi! Modi perspiciatis maxime voluptatem?
+                                Enim soluta cum, odio, quisquam repellat unde est at voluptate perspiciatis impedit tempore magni in quae facere dolorum ipsum quibusdam maxime doloremque, animi error quod harum pariatur nesciunt accusamus. Delectus.</p>
+                                <p class="message-time">10:50</p>
+                            </div>
+                        </div>
+                        <div class="incoming-message flex flex-start ">
+                            <div class="message flex">
+                                <p class="message-text">Ciao,Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, optio provident reiciendis cumque molestias deserunt veritatis. Eveniet aperiam eum perspiciatis voluptas quo praesentium nam modi. Nemo rem dicta debitis ipsa. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacome stai?</p>
+                                <p class="message-time">10:30</p>
+                            </div>
+                        </div>
+                        <div class="incoming-message flex flex-start ">
+                            <div class="message flex">
+                                <p class="message-text">Ciao,Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, optio provident reiciendis cumque molestias deserunt veritatis. Eveniet aperiam eum perspiciatis voluptas quo praesentium nam modi. Nemo rem dicta debitis ipsa. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacome stai?</p>
+                                <p class="message-time">10:30</p>
+                            </div>
+                        </div>
+                        
                       </div>
-                      <span class="actions flex flex-start">
-                        <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce" style="color: var(#B1B1B1);"></i></a>
-                        <a href=""><i class="fa-solid fa-message" style="color: #B1B1B1;"></i></a>
-                        <a href=""><i class="fa-solid fa-ellipsis-vertical" style="color: #B1B1B1;"></i></a>
-                      </span>
-                    </section>                      
-                              
                       
                 </div>
-                <div class="window-chat">
-                    ci saranno l'insieme dei messaggi scambiati tra user e contatti
-                    
-                </div>
+                <!-- /Main window CHAT -->
+
+                <!-- Input area text + emoji -->
                 <div class="input-area flex">
                     <div class="data-input flex flex-between">
-                        <span class="emoji-icon"><i class="fa-solid fa-face-meh-blank fa-beat fa-2xl" style="color: #12ca7a;"></i></span>
+                        <span class="emoji-icon"><i class="fa-solid fa-face-meh-blank fa-beat fa-2xl"
+                                style="color: #12ca7a;"></i></span>
                         <span><i class="fa-solid fa-paperclip fa-2xl" style="color: #ff0000;"></i></span>
-                        <textarea id="message" class="large" placeholder="   Scrivi un messaggio, ma fai prima con un messaggio vocale &#x1F608;"></textarea>
+                        <textarea id="message" class="large"
+                            placeholder="   Scrivi un messaggio, ma fai prima con un messaggio vocale &#x1F608;"></textarea>
                         <span><i class="fa-solid fa-microphone fa-bounce fa-2xl" style="color: #1e54f6;"></i></span>
 
                     </div>
                 </div>
+                <!-- /Input area text + emoji -->
 
             </div>
             <!-- ?/Window chat RIGHT -->
@@ -132,4 +172,5 @@
 
     <script src="js/script.js"></script>
 </body>
+
 </html>
