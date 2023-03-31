@@ -182,6 +182,6 @@ createApp({
         }
     },
     methods:{
-
+        
     }
 }).mount("#app");
