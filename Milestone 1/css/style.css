@@ -13,7 +13,7 @@
 /* Il 180deg (o to bottom,)indica la direzione del gradiente, che va dal top verso il bottom dell'elemento. */
 
 #app {
-    background: linear-gradient(180deg, #009688 15%, #7e7f7c 10%);
+    background: linear-gradient(#009688 15%, #7e7f7c 10%);
     height: 100vh;
     width: 100%;
 }
@@ -57,11 +57,23 @@ img {
 
 ul {
     list-style-type: none;
-    padding: 0 10px;
+    padding-left: 0;
     gap: 10px;
     color: rgb(143, 137, 137);
     font-size: .8rem;
 }
+
+li{
+    padding-left: 10px;
+    height: 70px;
+    cursor: pointer;
+}
+
+li:hover{
+    background-color: #a3a0a0;
+}
+
+i{cursor: pointer;}
 
 
 /* !########################################################## */
@@ -106,7 +118,6 @@ ul {
 .notifications,
 .search-bar {
     height: 50px;
-    /*sono indeciso se mettere percentuale o fissa*/
     background-color: #20696e;
     padding: 0 10px;
     /* debug */
@@ -186,7 +197,7 @@ ul {
 .chat-list {
     padding: 20px 0;
     height: calc(100% - 150px);
-    background-color: #483347;
+    background-color: #ece2eb;
     overflow-y: auto;
 }
 
@@ -303,7 +314,7 @@ textarea {
     max-height: 90%;
     resize: none;
     border-radius: 20px;
-
+    padding: 5px 0 0 25px;
 }
 
 textarea::placeholder {

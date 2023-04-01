@@ -81,7 +81,7 @@
                                 {{ getLastMessageDate(elemento) }}
                             </span>
                         </li>
-                    </ul>
+                                            </ul>
                     <h2 v-else>Mi dispiace non ci sono chat attive</h2>
                 </div>
                 <!-- /Chat-list -->
@@ -106,9 +106,8 @@
                             </section>
                         </div>
                         <span class="actions flex flex-start">
-                            <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce"
-                                    style="color: var(#B1B1B1);"></i></a>
-                            <a href=""><i class="fa-solid fa-message" style="color: #B1B1B1;"></i></a>
+                            <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce" style="color: var(#B1B1B1);"></i></a>
+                            <a href=""><i class="fa-solid fa-paperclip"></i></a>
                             <a href=""><i class="fa-solid fa-ellipsis-vertical" style="color: #B1B1B1;"></i></a>
                         </span>
                     </section>
@@ -127,9 +126,8 @@
                         </div>
                         <div class="outgoing-message flex flex-end">
                             <div class="message flex">
-                                <p class="message-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae tenetur eum temporibus non, consequuntur sapiente exercitationem ea asperiores, quisquam vero corporis est nobis aperiam voluptate quasi! Modi perspiciatis maxime voluptatem?
-                                Enim soluta cum, odio, quisquam repellat unde est at voluptate perspiciatis impedit tempore magni in quae facere dolorum ipsum quibusdam maxime doloremque, animi error quod harum pariatur nesciunt accusamus. Delectus.</p>
-                                <p class="message-time">10:50</p>
+                                <p class="message-text" v-model="textUser">{{textUser}}</p>
+                                <p class="message-time">{{ currentTime }}</p>
                             </div>
                         </div>
                         <div class="incoming-message flex flex-start ">
@@ -153,11 +151,9 @@
                 <!-- Input area text + emoji -->
                 <div class="input-area flex">
                     <div class="data-input flex flex-between">
-                        <span class="emoji-icon"><i class="fa-solid fa-face-meh-blank fa-beat fa-2xl"
-                                style="color: #12ca7a;"></i></span>
+                        <span class="emoji-icon"><i class="fa-solid fa-face-meh-blank fa-beat fa-2xl" style="color: #12ca7a;"></i></span>
                         <span><i class="fa-solid fa-paperclip fa-2xl" style="color: #ff0000;"></i></span>
-                        <textarea id="message" class="large"
-                            placeholder="   Scrivi un messaggio, ma fai prima con un messaggio vocale &#x1F608;"></textarea>
+                        <textarea id="message" class="large" @keyup.enter="sendMessage" v-model="textSent" placeholder="Scrivi un messaggio &#x1F608;"></textarea>
                         <span><i class="fa-solid fa-microphone fa-bounce fa-2xl" style="color: #1e54f6;"></i></span>
 
                     </div>

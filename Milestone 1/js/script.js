@@ -16,6 +16,9 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            textSent: "",   //testo nella text area
+            textUser: "",    // messaggio personale
+            textContact: "", // messaggio contatto
             contacts: [
                 {
                     name: 'Michele',
@@ -189,11 +192,21 @@ createApp({
         getLastMessageDate(contact) {
             const lastMessage = contact.messages[contact.messages.length - 1];
             if (lastMessage) {
-              const lastMessageTime = lastMessage.date.slice(11, 16); // il primo argomento indica l'indice di inizio della sottostringa (incluso), mentre il secondo argomento indica l'indice di fine della sottostringa (escluso).
-              return lastMessageTime;
+                const lastMessageTime = lastMessage.date.slice(11, 16); // il primo argomento indica l'indice di inizio della sottostringa (incluso), mentre il secondo argomento indica l'indice di fine della sottostringa (escluso).
+                return lastMessageTime;
             }
             return '';
-            }
-          
+        },
+        sendMessage() {
+            if (this.textSent !== '') {
+                this.textUser = this.textSent;
+                const date = new Date();
+                const hours = date.getHours();
+                const minutes = date.getMinutes();
+                this.input = hours + ':' + minutes + ' - ' + this.textUser;
+                this.textSent = '';
+              }
+        }
+
     }
 }).mount("#app");
