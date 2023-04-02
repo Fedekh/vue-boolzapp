@@ -16,9 +16,6 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            textSent: "",   //testo nella text area
-            textUser: "",    // messaggio personale
-            textContact: "", // messaggio contatto
             contacts: [
                 {
                     name: 'Michele',
@@ -183,40 +180,15 @@ createApp({
                 }
             ],
 
-            chatActived: null,  //chat attiva
-            textSent: "",   // testo nella text area
-            textUser: "",   // messaggio personale
-            textContact: "",   // messaggio contatto
+            chatCurrent: null //chat attiva
         }
     },
+    
     methods: {
-        getLastMessage(contact) {
-            const lastMessage = contact.messages[contact.messages.length - 1];
-            return lastMessage ? lastMessage.message : '';
-        },
-        getLastMessageDate(contact) {
-            const lastMessage = contact.messages[contact.messages.length - 1];
-            if (lastMessage) {
-                const lastMessageTime = lastMessage.date.slice(11, 16); // il primo argomento indica l'indice di inizio della sottostringa (incluso), mentre il secondo argomento indica l'indice di fine della sottostringa (escluso).
-                return lastMessageTime;
-            }
-            return '';
-        },
-        chatActive(element) {       //al click su una chat SX compaiono le info in alto dx 
-            this.chatActived = {
-                name: element.name,
-                avatar: element.avatar,
-                lastMessageDate: element.messages[element.messages.length - 1].date.slice(11, 16),
-                lastMessage: element.messages[element.messages.length - 2]
-            };
-            console.log(element);
-        },
-        getLastChat(contact) {
-            if (contact && contact.messages) {
-                const lastMessages = contact.messages.slice(-3);
-                return lastMessages ? lastMessages : [];
-            }
-            return [];
+        currentChat(element) {
+            this.chatCurrent = element;
         }
+       
+
     }
 }).mount("#app");

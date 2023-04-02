@@ -1,0 +1,115 @@
+<div class="chat-list">
+                    <ul v-if="contacts.length > 0" class="flex flex-column">
+                        <li @click="currentChat(elemento)" v-for="elemento in contacts"
+                            class="flex flex-between list-item-chat">
+                            <section class="flex flex-between chat">
+                                <img :src="`img/avatar${elemento.avatar}.jpg`" :alt="elemento.avatar">
+                                <section class="flex flex-column">
+                                    <span class="name">{{ elemento.name }}</span>
+                                    <span class="message">
+                                        {{ elemento.messages[elemento.messages.length - 1].message }}
+                                    </span>
+                                </section>
+                            </section>
+                            <span class="time">
+                                {{ elemento.messages[elemento.messages.length - 1].date.substring(11).slice(0, -3)}}
+                            </span>
+                        </li>
+                    </ul>
+                    <h2 v-else>Mi dispiace non ci sono chat attive</h2>
+                </div>
+                <!-- /Chat-list -->
+
+
+            </div>
+            <!-- ?/Chat list LEFT -->
+
+
+            <!-- ?Window chat RIGHT -->
+
+            <div id="right" class="flex flex-column">
+                <!-- header right -->
+                <div class="header header-right">
+                    <section class="header-right-chat flex flex-between">
+                        <div class="flex flex-start chat" v-if="chatCurrent">
+                            <img :src="`img/avatar${chatCurrent.avatar}.jpg`" :alt="chatCurrent.avatar">
+                            <section class="flex flex-column">
+                                <span class="name">{{chatCurrent.name}}</span>
+                                <span class="last-chat">Ultimo accesso alle {{
+                                    chatCurrent.messages[chatCurrent.messages.length - 1].date.substring(11).slice(0,
+                                    -3)}} </span>
+                            </section>
+                        </div>
+                        <span class="actions flex flex-start">
+                            <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce" style="color: var(#B1B1B1);"></i></a>
+                            <a href=""><i class="fa-solid fa-paperclip"></i></a>
+                            <a href=""><i class="fa-solid fa-ellipsis-vertical" style="color: #B1B1B1;"></i></a>
+                        </span>
+                </div>
+        </section>
+    </div>
+    <!-- /header right -->
+
+    <!-- Main window CHAT -->
+    <div class="window-chat">
+        <div class="chat-container flex flex-column">
+            <div class="flex flex-end green-message" v-if="chatActived">
+                <div class="message flex">
+                    <p class="message-text">{{chatCurrent.messages[1].message}}</p>
+                    <p class="message-time">{{chatCurrent.messages[1].date.substring(11).slice(0,
+                        -3)}}</p>
+                </div>
+            </div>
+            <div class="flex flex-start white-message">
+                <div>
+                    <p class="message-text">{{chatCurrent.messages[2].message}}</p>
+                    <p class="message-time">{{chatCurrent.messages[2].date.substring(11).slice(0,
+                        -3)}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+const { createApp } = Vue;
+
+createApp({
+    data() {
+        return {
+            contacts: [
+                {
+                    name: 'Michele',
+                    avatar: '_1',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Hai portato a spasso il cane?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Ricordati di stendere i panni',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 16:15:22',
+                            message: 'Tutto fatto!',
+                            status: 'received'
+                        }
+                    ],
+                },
+               
+            ],
+
+            chatCurrent: null //chat attiva
+        }
+    },
+    
+    methods: {
+        currentChat(element) {
+            this.chatCurrent = element;
+        }
+       
+
+    }
+}).mount("#app");    
