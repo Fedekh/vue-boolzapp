@@ -108,51 +108,46 @@
                             </section>
                         </div>
                         <span class="actions flex flex-start">
-                            <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce" style="color: var(#B1B1B1);"></i></a>
+                            <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce"
+                                    style="color: var(#B1B1B1);"></i></a>
                             <a href=""><i class="fa-solid fa-paperclip"></i></a>
                             <a href=""><i class="fa-solid fa-ellipsis-vertical" style="color: #B1B1B1;"></i></a>
                         </span>
+                    </section>
                 </div>
+                <!-- /header right -->
+
+                <!-- Main window CHAT -->
+                <div class="window-chat">
+                    <div class="chat-container flex flex-column">
+                        <div class="messaggi" v-for="elemento in newMessage"
+                            :class="elemento.status === 'sent' ? 'green-message' : 'white-message' ">
+                            <p>{{ elemento.message }} </p>
+                            <span class="ultimate"> {{elemento.date.substring(11).slice(0,-3)}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Main window CHAT -->
+
+                <!-- Input area text + emoji -->
+                <div class="input-area flex">
+                    <div class="data-input flex flex-between">
+                        <span class="emoji-icon"><i class="fa-solid fa-face-meh-blank fa-beat fa-2xl"
+                                style="color: #12ca7a;"></i></span>
+                        <span><i class="fa-solid fa-paperclip fa-2xl" style="color: #ff0000;"></i></span>
+                        <textarea id="message" class="large" @keyup.enter="sendMessage" v-model="textSent"
+                            placeholder="Scrivi un messaggio &#x1F608;"></textarea>
+                        <span><i class="fa-solid fa-microphone fa-bounce fa-2xl" style="color: #1e54f6;"></i></span>
+
+                    </div>
+                </div>
+                <!-- /Input area text + emoji -->
+
+            </div>
+            <!-- ?/Window chat RIGHT -->
+
         </section>
-    </div>
-    <!-- /header right -->
-
-    <!-- Main window CHAT -->
-    <div class="window-chat">
-        <!-- <div class="chat-container flex flex-column">
-            <div class="flex flex-end green-message">
-                <div class="message flex ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita reprehenderit illum asperiores, provident dolore praesentium, nobis sapiente consequatur dolor eos excepturi ipsum distinctio corrupti reiciendis ad molestias aspernatur, voluptas laborum.
-                </div>
-            </div>
-            <div class="flex flex-start white-message">
-                <div class="message flex">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita reprehenderit illum asperiores, provident dolore praesentium, nobis sapiente consequatur dolor eos excepturi ipsum distinctio corrupti reiciendis ad molestias aspernatur, voluptas laborum.
-                </div>
-            </div>
-        </div> -->
-    </div>
-    <!-- /Main window CHAT -->
-
-    <!-- Input area text + emoji -->
-    <div class="input-area flex">
-        <div class="data-input flex flex-between">
-            <span class="emoji-icon"><i class="fa-solid fa-face-meh-blank fa-beat fa-2xl"
-                    style="color: #12ca7a;"></i></span>
-            <span><i class="fa-solid fa-paperclip fa-2xl" style="color: #ff0000;"></i></span>
-            <textarea id="message" class="large" @keyup.enter="sendMessage" v-model="textSent"
-                placeholder="Scrivi un messaggio &#x1F608;"></textarea>
-            <span><i class="fa-solid fa-microphone fa-bounce fa-2xl" style="color: #1e54f6;"></i></span>
-
-        </div>
-    </div>
-    <!-- /Input area text + emoji -->
-
-    </div>
-    <!-- ?/Window chat RIGHT -->
-
-    </section>
-    <!--? /Central wrapper -->
+        <!--? /Central wrapper -->
 
     </div>
     <!--/ Macrocontainer di VueJS -->

@@ -180,13 +180,16 @@ createApp({
                 }
             ],
 
-            chatCurrent: null //chat attiva
+            chatCurrent: null, //chat attiva
+            newMessage: ""
         }
     },
     
     methods: {
         currentChat(element) {
             this.chatCurrent = element;
+            this.newMessage = element.messages;
+
         }
        
 

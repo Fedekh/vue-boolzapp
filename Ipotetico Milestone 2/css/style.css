@@ -183,6 +183,7 @@ i{cursor: pointer;}
 
 .input-chat:focus {
     width: 350px;
+    padding-left: 10px;
     /* larghezza dell'input quando è in focus */
 }
 
@@ -215,6 +216,7 @@ i{cursor: pointer;}
 .header-right .last-chat {
     font-size: .7rem;
     color: var(--icon-message);
+    padding: 5px 8px 0 0;
 }
 
 .chat-list .time {
@@ -253,41 +255,32 @@ i{cursor: pointer;}
     padding: 40px 10px;
 }
 
-.chat-container {
-    width: 100%;
-}
-
-.window-chat .message-time { 
-    align-self: flex-end;
-    font-size: 12px;
-}
-
-.green-message, .white-message {    
-    margin-bottom: 10px;
-}
-
-
-.green-message .message {
-    border-radius: 10px;
-    max-width: 70%;
+.green-message {
     background-color: var(--my-message);
-    padding: 5px 10px;
-    gap: 10px;
+    /* height: 40px; */
+    margin-top: 50px;
+    margin-left: 50%;
 }
 
-
-.white-message .message {
-    border-radius: 10px;
-    padding: 5px 10px;
-    max-width: 70%;
-    gap: 10px;
-    background-color: rgb(184, 183, 183)
-
+.white-message{
+    background-color: white;
+    margin-top: 50px;
 }
 
+.messaggi {
+    max-width: 50%;
+    min-width: 20%;
+    border-radius: 20px;
+    padding: 9px;
+    display: flex;
+    justify-content: space-between;
+}    
 
-
-
+.ultimate {
+    font-size: 12px;
+    margin-left: 20px;
+    align-self:flex-end;
+}
 
 /* -----------------MAIN INPUT WRITE CHAT------------------------- */
 
