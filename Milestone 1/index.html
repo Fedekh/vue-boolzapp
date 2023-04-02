@@ -70,7 +70,7 @@
                         <li @click=chatActive(elemento) v-for="elemento in contacts"
                             class="flex flex-between list-item-chat">
                             <section class="flex flex-between chat">
-                                <img :src="'img/avatar' + elemento.avatar + '.jpg'" :alt="elemento.avatar">
+                                <img :src="`img/avatar${elemento.avatar}.jpg`" :alt="elemento.avatar">
                                 <section class="flex flex-column">
                                     <span class="name">{{ elemento.name }}</span>
                                     <span class="message">
@@ -100,7 +100,7 @@
                 <div class="header header-right">
                     <section class="header-right-chat flex flex-between">
                         <div class="flex flex-start chat" v-if="chatActived !==null">
-                            <img :src="'img/avatar' + chatActived.avatar + '.jpg'" :alt="chatActived.avatar">
+                            <img :src="`img/avatar${chatActived.avatar}.jpg`" :alt="chatActived.avatar">
                             <section class="flex flex-column">
                                 <span class="name">{{ chatActived.name }}</span>
                                 <span class="last-chat">Ultimo accesso alle {{ chatActived.lastMessageDate }}</span>

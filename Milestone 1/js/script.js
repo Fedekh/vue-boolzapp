@@ -183,7 +183,7 @@ createApp({
                 }
             ],
 
-            chatActived: {},  //chat attiva
+            chatActived: null,  //chat attiva
             textSent: "",   // testo nella text area
             textUser: "",   // messaggio personale
             textContact: "",   // messaggio contatto
