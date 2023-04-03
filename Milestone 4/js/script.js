@@ -1,8 +1,7 @@
-// Milestone 3
-// ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
-// “enter” il testo viene aggiunto al thread sopra, come messaggio verde
-// ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
-// un “ok” come risposta, che apparirà dopo 1 secondo.
+// Milestone 4
+// ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+// contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+// “mar” rimangono solo Marco e Martina)
 
 const { createApp } = Vue;
 
@@ -188,36 +187,51 @@ createApp({
         },
 
         //serve per inserire un nuovo messaggio dopo aver cliccato una qualsiasi chat a sx
-        //e in teoria mi risponde un messaggio automatico dopo 1 secondo
         insertMessage(element) {
             let currentDate = new Date().toLocaleString("it-IT");
             if (this.newMessage !== "") {
-              element.messages.push({
-                date: currentDate,
-                message: this.newMessage,
-                status: 'sent'
-              });
-              this.newMessage = "";
-          
-              // Risposta automatica dopo un secondo
-              setTimeout(() => {
                 element.messages.push({
-                  date: new Date().toLocaleString("it-IT"),
-                  message: "Ciao caro sono assente per il momento.",
-                  status: "received"
+                    date: currentDate,
+                    message: this.newMessage,
+                    status: 'sent'
                 });
-              }, 1000);
+                this.newMessage = "";
+
+                // Risposta automatica dopo un secondo
+                setTimeout(() => {
+                    element.messages.push({
+                        date: new Date().toLocaleString("it-IT"),
+                        message: "Ciao caro sono assente per il momento.",
+                        status: "received"
+                    });
+                }, 1000);
             }
-          },
+        },
+
 
         //proviamo ad aggiungere effetto hover al click e rimuoverlo se ne clicco un altro
         toggleHoverClass(currentElemento) {
             this.contacts.forEach(elemento => {
-              if (elemento !== currentElemento) {
-                elemento.hoverLiClass = false;
-              }
+                if (elemento !== currentElemento) {
+                    elemento.hoverLiClass = false;
+                }
             });
             currentElemento.hoverLiClass = !currentElemento.hoverLiClass;
-          },
+        },
+
+        //proviamo a cercare un nostro amico nella barra di ricerca
+        findFriend() {
+            const searchTerm = this.filterFriend.toLowerCase().trim(); // rimuove eventuali spazi bianchi iniziali e finali
+            if (searchTerm === '') {            // se la barra di ricerca è vuota, mostra tutti i contatti
+                this.contacts.forEach((contact) => {
+                    contact.visible = true;
+                });
+            } else {                // altrimenti, filtra i contatti in base alla stringa di ricerca
+                this.contacts.forEach((contact) => {
+                    const currentChatName = contact.name.toLowerCase();
+                    contact.visible = currentChatName.includes(searchTerm);
+                });
+            }
+        },
     }
 }).mount("#app");
