@@ -1,15 +1,7 @@
-// Oggi iniziamo a realizzare Boolzapp 
-// Milestone 1:
-// Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi)
-//e dall’interlocutore (bianco) assegnando due classi CSS diverse
-// Visualizzazione dinamica della lista contatti: tramite la direttiva v-for,
-// visualizzare nome e immagine di ogni contatto.
-// Consigli del giorno:
-// - scegliete con attenzione gli strumenti che utilizzerete;
-
-// - tenete in mente le funzionalità che dovranno essere implementate nei giorni successive.
-//  La struttura realizzata mi faciliterà rendere il tutto dinamico? 
-//Forse mi serve una classe per distinguere i messaggi innviati da quelli ricevuti?
+// Milestone 2
+// ● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i
+// messaggi relativi al contatto attivo all’interno del pannello della conversazione
+// ● Click sul contatto mostra la conversazione del contatto cliccato
 
 const { createApp } = Vue;
 
@@ -194,42 +186,5 @@ createApp({
             this.currentMessage = element.messages;
         },
 
-        //serve per inserire un nuovo messaggio dopo aver cliccato una qualsiasi chat a sx
-        insertMessage(element) {
-            let currentDate = new Date().toLocaleString("it-IT");
-            if (this.newMessage !== "") {
-                element.messages.push({
-                    date: currentDate,
-                    message: this.newMessage,
-                    status: 'sent'
-                });
-                this.newMessage = "";
-            }
-        },
-
-        //proviamo ad aggiungere effetto hover al click e rimuoverlo se ne clicco un altro
-        toggleHoverClass(currentElemento) {
-            this.contacts.forEach(elemento => {
-              if (elemento !== currentElemento) {
-                elemento.hoverLiClass = false;
-              }
-            });
-            currentElemento.hoverLiClass = !currentElemento.hoverLiClass;
-          },
-
-        //proviamo a cercare un nostro amico nella barra di ricerca
-        findFriend() {
-            const searchTerm = this.filterFriend.toLowerCase().trim(); // rimuove eventuali spazi bianchi iniziali e finali
-            if (searchTerm === '') {            // se la barra di ricerca è vuota, mostra tutti i contatti
-                this.contacts.forEach((contact) => {
-                    contact.visible = true;
-                });
-            } else {                // altrimenti, filtra i contatti in base alla stringa di ricerca
-                this.contacts.forEach((contact) => {
-                    const currentChatName = contact.name.toLowerCase();
-                    contact.visible = currentChatName.includes(searchTerm);
-                });
-            }
-        },
     }
 }).mount("#app");
