@@ -88,7 +88,7 @@ i{cursor: pointer;}
 #right {
     width: 65%;
     /* debug */
-    border: 1px solid rgb(138, 65, 5);
+    /* border: 1px solid rgb(138, 65, 5); */
 }
 
 #left {
@@ -118,10 +118,13 @@ i{cursor: pointer;}
 .notifications,
 .search-bar {
     height: 50px;
-    background-color: #20696e;
+    background-color: var(--header);
     padding: 0 10px;
     /* debug */
     /* border: 1px solid rgb(19, 46, 201); */
+}
+.search-bar {
+    background-color: var();
 }
 
 /* -------------HEADER LEFT----------------------------- */
@@ -176,6 +179,9 @@ i{cursor: pointer;}
 .search-bar .input-chat {
     border-radius: 0.8rem;
     width: 200px;
+    font-size: 14px;
+    padding-left: 5px;
+
     /* larghezza iniziale dell'input */
     transition: width 0.5s ease-in-out;
     /* transizione per animare l'allungamento */
@@ -183,7 +189,6 @@ i{cursor: pointer;}
 
 .input-chat:focus {
     width: 350px;
-    padding-left: 10px;
     /* larghezza dell'input quando è in focus */
 }
 
@@ -272,7 +277,6 @@ i{cursor: pointer;}
     min-width: 20%;
     border-radius: 20px;
     padding: 9px;
-    display: flex;
     justify-content: space-between;
 }    
 
@@ -286,7 +290,7 @@ i{cursor: pointer;}
 
 .input-area {
     height: 50px;
-    background-color: #ffffff;
+    background-color: var(--header);
     padding: 0 10px;
 
     /* debug */
@@ -301,19 +305,19 @@ i{cursor: pointer;}
     /* border: 1px solid rgb(53, 195, 129); */
 }
 
-textarea {
+input {
     width: 100%;
     max-height: 90%;
     resize: none;
     border-radius: 20px;
-    padding: 5px 0 0 25px;
+    padding-left: 25px;
 }
 
-textarea::placeholder {
+input::placeholder {
     font-size: 14px;
 }
 
-textarea.large {
+input.large {
     width: 80%;
     font-size: 20px;
 }

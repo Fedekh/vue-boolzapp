@@ -181,17 +181,45 @@ createApp({
             ],
 
             chatCurrent: null, //chat attiva
-            newMessage: ""
+            currentMessage: "", //selezioniamo l'attuale emssaggio in main window
+            newMessage: "",         //ci scriveremo un nuovo messaggio dopo aver aperto una chat
+            filterFriend: "",   //ci servirà per filtrare un amico nella ricerca
         }
     },
-    
+
     methods: {
+        //riusciamo a selezionare un elemento nella lista sx e gestirlo
         currentChat(element) {
             this.chatCurrent = element;
-            this.newMessage = element.messages;
+            this.currentMessage = element.messages;
+        },
 
-        }
-       
+        //serve per inserire un nuovo messaggio dopo aver cliccato una qualsiasi chat a sx
+        insertMessage(element) {
+            let currentDate = new Date().toLocaleString("en-GB");
+            if (this.newMessage !== "") {
+                element.messages.push({
+                    date: currentDate,
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+                this.newMessage = "";
+            }
+        },
 
+        //proviamo a cercare un nostro amico nella barra di ricerca
+        findFriend() {
+            const searchTerm = this.filterFriend.toLowerCase().trim(); // rimuove eventuali spazi bianchi iniziali e finali
+            if (searchTerm === '') {            // se la barra di ricerca è vuota, mostra tutti i contatti
+              this.contacts.forEach((contact) => {
+                contact.visible = true;
+              });
+            } else {                // altrimenti, filtra i contatti in base alla stringa di ricerca
+              this.contacts.forEach((contact) => {
+                const currentChatName = contact.name.toLowerCase();
+                contact.visible = currentChatName.includes(searchTerm);
+              });
+            }
+          },
     }
 }).mount("#app");
