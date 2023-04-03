@@ -126,8 +126,15 @@
                             :class="elemento.status === 'sent' ? 'green-message' : 'white-message' ">
                             <p>{{ elemento.message }} </p>
                             <span class="ultimate"> {{elemento.date.substring(11).slice(0,-3)}}</span>
-                            <span class="chevron-span" >
+                            <!-- al click mi inverte una condizione booleana settata di defaul false e inserito come nuova key
+                            all'interno di array messages, c'è poi un mouseleave che mi resetta questa condizione a false
+                            per non farlo ri apparire senza che io clicchi effettivamente sullo chevron -->
+                            <span @click="toggleMenu(elemento)" class="chevron-span" >
                                 <i class="fa-solid fa-chevron-down chevron" style="color: #bcbfc2;"></i>
+                                <ul v-if="elemento.showMenu" class="minimenu"  @mouseleave="hideMenu(elemento)">
+                                    <li>Info</li>
+                                    <li @click.stop="deleteMessage(elemento)">Elimina messaggio</li>
+                                </ul>
                             </span>
                         </div>
                     </div>

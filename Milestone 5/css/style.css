@@ -38,7 +38,7 @@
     align-items: center;
 }
 
-.flex-end{
+.flex-end {
     justify-content: flex-end;
 }
 
@@ -63,17 +63,19 @@ ul {
     font-size: .8rem;
 }
 
-li{
+li {
     padding-left: 10px;
     height: 70px;
     cursor: pointer;
 }
 
-.hover-li{
+.hover-li {
     background-color: #a3a0a0;
 }
 
-i{cursor: pointer;}
+i {
+    cursor: pointer;
+}
 
 
 /* !########################################################## */
@@ -124,6 +126,7 @@ i{cursor: pointer;}
     /* debug */
     /* border: 1px solid rgb(19, 46, 201); */
 }
+
 .search-bar {
     background-color: var();
 }
@@ -268,7 +271,7 @@ i{cursor: pointer;}
     margin-left: 50%;
 }
 
-.white-message{
+.white-message {
     background-color: white;
     margin-top: 50px;
 }
@@ -280,25 +283,53 @@ i{cursor: pointer;}
     padding: 9px;
     justify-content: space-between;
     position: relative;
-}    
+}
 
 .ultimate {
     font-size: 12px;
     margin-left: 20px;
-    align-self:flex-end;
+    align-self: flex-end;
 }
 
 
-.chevron-span{
+.chevron-span {
+    width: 20px;
+    height: 30px;
     position: absolute;
     top: 5px;
-    right: 10px; 
+    right: 10px;
     opacity: 0;
 }
 
-.chevron-span:hover  {
+.chevron-span:hover {
     opacity: 1;
-  }
+}
+
+.minimenu {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.minimenu li {
+    text-align: center;
+    line-height: 50px;
+    padding: 5px;
+    color: #009688;
+    width: 200px;
+    cursor: pointer;
+}
+
+.minimenu li:hover {
+    background-color: #c7bfbf;
+}
 
 
 
@@ -327,7 +358,7 @@ input {
     resize: none;
     border-radius: 20px;
     padding-left: 25px;
-    
+
 }
 
 input::placeholder {
