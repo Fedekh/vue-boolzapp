@@ -176,6 +176,8 @@ createApp({
             currentMessage: "", //selezioniamo l'attuale emssaggio in main window
             newMessage: "",         //ci scriveremo un nuovo messaggio dopo aver aperto una chat
             filterFriend: "",   //ci servirà per filtrare un amico nella ricerca
+            hover: false        //indica se ci sono passato sopra col mouse o meno
+
         }
     },
 
@@ -233,5 +235,12 @@ createApp({
                 });
             }
         },
+
+        //proviamo a cancellare un messaggio
+        setHover(value) {
+            this.hover = value
+          },
+       
+          
     }
 }).mount("#app");

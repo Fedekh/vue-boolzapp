@@ -60,15 +60,17 @@
                 <!-- Search bar -->
                 <div class="search-bar flex flex-start">
                     <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce" style="color: #c12f2f;"></i></a>
-                    <input @keyup="findFriend" v-model="filterFriend" type="text" class="input-chat" placeholder=" Cerca o inizia una nuova chat">
+                    <input @keyup="findFriend" v-model="filterFriend" type="text" class="input-chat"
+                        placeholder=" Cerca o inizia una nuova chat">
                 </div>
                 <!-- /Search bar -->
 
                 <!-- Chat-list -->
                 <div class="chat-list">
                     <ul v-if="contacts.length > 0" v-if="filteredContacts.length > 0" class="flex flex-column">
-                        <li @click="currentChat(elemento); toggleHoverClass(elemento)" v-show="elemento.visible" v-for="elemento in contacts"
-                            class="flex flex-between list-item-chat" :class="{ 'hover-li': elemento.hoverLiClass }">
+                        <li @click="currentChat(elemento); toggleHoverClass(elemento)" v-show="elemento.visible"
+                            v-for="elemento in contacts" class="flex flex-between list-item-chat"
+                            :class="{ 'hover-li': elemento.hoverLiClass }">
                             <section class="flex flex-between chat">
                                 <img :src="`img/avatar${elemento.avatar}.jpg`" :alt="elemento.avatar">
                                 <section class="flex flex-column">
@@ -124,6 +126,9 @@
                             :class="elemento.status === 'sent' ? 'green-message' : 'white-message' ">
                             <p>{{ elemento.message }} </p>
                             <span class="ultimate"> {{elemento.date.substring(11).slice(0,-3)}}</span>
+                            <span class="chevron-span" >
+                                <i class="fa-solid fa-chevron-down chevron" style="color: #bcbfc2;"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -135,10 +140,9 @@
                         <span class="emoji-icon"><i class="fa-solid fa-face-meh-blank fa-2xl"
                                 style="color: #12ca7a;"></i></span>
                         <span><i class="fa-solid fa-paperclip fa-2xl" style="color: #ff0000;"></i></span>
-                        <input v-model.trim="newMessage" @keyup.enter="insertMessage(chatCurrent)"  id="message" class="large"
-                            placeholder="Scrivi un messaggio &#x1F608;"></input>
+                        <input v-model.trim="newMessage" @keyup.enter="insertMessage(chatCurrent)" id="message"
+                            class="large" placeholder="Scrivi un messaggio &#x1F608;"></input>
                         <span><i class="fa-solid fa-microphone fa-2xl" style="color: #1e54f6;"></i></span>
-
                     </div>
                 </div>
                 <!-- /Input area text + emoji -->
