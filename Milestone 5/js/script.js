@@ -4,7 +4,7 @@
 // ● Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
 
 const { createApp } = Vue;
-
+const dt = luxon.DateTime;console.log(dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS));
 createApp({
     data() {
         return {
@@ -199,7 +199,6 @@ createApp({
             filterFriend: "",   //ci servirà per filtrare un amico nella ricerca
         }
     },
-
     methods: {
         //riusciamo a selezionare un elemento nella lista sx e gestirlo
         currentChat(element) {
@@ -209,7 +208,7 @@ createApp({
 
         //serve per inserire un nuovo messaggio dopo aver cliccato una qualsiasi chat a sx
         insertMessage(element) {
-            let currentDate = new Date().toLocaleString("it-IT");
+            let currentDate = luxon.DateTime.now().setZone('Europe/Rome').toFormat('yyyy-MM-dd HH:mm:ss');
             if (this.newMessage !== "") {
                 element.messages.push({
                     date: currentDate,
@@ -217,17 +216,18 @@ createApp({
                     status: 'sent'
                 });
                 this.newMessage = "";
-
+        
                 // Risposta automatica dopo un secondo
                 setTimeout(() => {
+                    let currentDate = luxon.DateTime.now().setZone('Europe/Rome').toFormat('yyyy-MM-dd HH:mm:ss');
                     element.messages.push({
-                        date: new Date().toLocaleString("it-IT"),
+                        date: currentDate,
                         message: "Ciao caro sono assente per il momento.",
                         status: "received"
                     });
                 }, 1000);
             }
-        },
+        } ,
 
         //proviamo ad aggiungere effetto hover al click chat sx e rimuoverlo se ne clicco un altro
         toggleHoverClass(currentElemento) {
@@ -258,7 +258,7 @@ createApp({
         //all interno dell array di oggetti messages settandolo a
         toggleMenu(elemento) {
             elemento.showMenu = !elemento.showMenu;
-          },
+        },
 
         //proviamo a far si che se vado via dall hover e ritorno, non parta da solo
         //il minimenu
@@ -273,7 +273,6 @@ createApp({
             const index = this.currentMessage.indexOf(elemento);
             this.currentMessage.splice(index, 1);
         },
-       
-          
+
     }
 }).mount("#app");
