@@ -269,6 +269,7 @@ i {
     /* height: 40px; */
     margin-top: 50px;
     margin-left: 50%;
+    word-wrap: break-word;
 }
 
 .white-message {

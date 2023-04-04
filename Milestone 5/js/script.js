@@ -193,10 +193,10 @@ createApp({
                 }
             ],
 
-            chatCurrent: null, //chat attiva
-            currentMessage: "", //selezioniamo l'attuale emssaggio in main window
+            chatCurrent: null,      //chat attiva
+            currentMessage: "",     //selezioniamo l'attuale emssaggio in main window
             newMessage: "",         //ci scriveremo un nuovo messaggio dopo aver aperto una chat
-            filterFriend: "",   //ci servirà per filtrare un amico nella ricerca
+            filterFriend: "",       //ci servirà per filtrare un amico nella ricerca
         }
     },
     methods: {
@@ -254,7 +254,7 @@ createApp({
             }
         },
 
-        //proviamo a creare un menu a tendina e ho inserito unl'atra key
+        //proviamo a creare un menu a tendina e ho inserito un'altra key
         //all interno dell array di oggetti messages settandolo a
         toggleMenu(elemento) {
             elemento.showMenu = !elemento.showMenu;
@@ -273,6 +273,5 @@ createApp({
             const index = this.currentMessage.indexOf(elemento);
             this.currentMessage.splice(index, 1);
         },
-
     }
 }).mount("#app");
