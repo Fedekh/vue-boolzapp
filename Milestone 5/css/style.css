@@ -292,6 +292,12 @@ i {
     align-self: flex-end;
 }
 
+.no-messages{
+    text-align: center;
+    align-self: center;
+    color: red;
+}
+
 
 .chevron-span {
     width: 20px;

@@ -200,13 +200,15 @@ createApp({
         }
     },
     methods: {
+        
         //riusciamo a selezionare un elemento nella lista sx e gestirlo
         currentChat(element) {
             this.chatCurrent = element;
             this.currentMessage = element.messages;
         },
 
-        //serve per inserire un nuovo messaggio dopo aver cliccato una qualsiasi chat a sx
+        //serve per inserire un nuovo messaggio e un auto messaggio di risposta
+        //dopo aver cliccato una qualsiasi chat a sx
         insertMessage(element) {
             let currentDate = luxon.DateTime.now().setZone('Europe/Rome').toFormat('yyyy-MM-dd HH:mm:ss');
             if (this.newMessage !== "") {
@@ -241,7 +243,7 @@ createApp({
 
         //proviamo a cercare un nostro amico nella barra di ricerca
         findFriend() {
-            const searchTerm = this.filterFriend.toLowerCase().trim(); // rimuove eventuali spazi bianchi iniziali e finali
+            const searchTerm = this.filterFriend.toLowerCase(); // rimuove eventuali spazi bianchi iniziali e finali
             if (searchTerm === '') {            // se la barra di ricerca è vuota, mostra tutti i contatti
                 this.contacts.forEach((contact) => {
                     contact.visible = true;
@@ -257,7 +259,7 @@ createApp({
         //proviamo a creare un menu a tendina e ho inserito un'altra key
         //all interno dell array di oggetti messages settandolo a
         toggleMenu(elemento) {
-            elemento.showMenu = !elemento.showMenu;
+            elemento.showMenu = !elemento.showMenu;            
         },
 
         //proviamo a far si che se vado via dall hover e ritorno, non parta da solo
@@ -271,7 +273,10 @@ createApp({
         //proviamo a cancellare un messaggio
         deleteMessage(elemento) {
             const index = this.currentMessage.indexOf(elemento);
-            this.currentMessage.splice(index, 1);
-        },
+            if (index > -1) {
+              this.currentMessage.splice(index, 1);
+            }                       
+          }
+                    
     }
 }).mount("#app");

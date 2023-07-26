@@ -286,6 +286,12 @@ i{cursor: pointer;}
     align-self:flex-end;
 }
 
+.no-messages{
+    text-align: center;
+    align-self: center;
+    color: red;
+}
+
 /* -----------------MAIN INPUT WRITE CHAT------------------------- */
 
 .input-area {

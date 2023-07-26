@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- VUE LINK -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.min.js"></script>
 
     <!-- FONTAWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -36,7 +36,7 @@
                 <!-- HEADER LEFT -->
                 <div class="header header-left flex flex-center">
                     <div class="main-avatar flex flex-start">
-                        <img src="./img/avatar_1.jpg" alt="">
+                        <img src="./img/avatar_io.jpg" alt="">
                         <span>Sofia</span>
                     </div>
                     <div class="actions flex">
@@ -60,18 +60,18 @@
                 <!-- Search bar -->
                 <div class="search-bar flex flex-start">
                     <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce" style="color: #c12f2f;"></i></a>
-                    <input @keyup="findFriend" v-model="filterFriend" type="text" class="input-chat"
+                    <input @keyup="findFriend" v-model.trim="filterFriend" type="text" class="input-chat"
                         placeholder=" Cerca o inizia una nuova chat">
                 </div>
                 <!-- /Search bar -->
 
                 <!-- Chat-list -->
                 <div class="chat-list">
-                    <ul v-if="contacts.length > 0" v-if="filteredContacts.length > 0" class="flex flex-column">
-                        <li @click="currentChat(elemento); toggleHoverClass(elemento)" v-show="elemento.visible"
-                            v-for="elemento in contacts" class="flex flex-between list-item-chat"
+                    <ul v-if="contacts.length > 0" class="flex flex-column" >
+                        <li @click="currentChat(elemento); toggleHoverClass(elemento)" 
+                            v-for="(elemento,index) in contacts" class="flex flex-between list-item-chat" 
                             :class="{ 'hover-li': elemento.hoverLiClass }">
-                            <section class="flex flex-between chat">
+                            <section class="flex flex-between chat" >
                                 <img :src="`img/avatar${elemento.avatar}.jpg`" :alt="elemento.avatar">
                                 <section class="flex flex-column">
                                     <span class="name">{{ elemento.name }}</span>
@@ -106,8 +106,7 @@
                             </section>
                         </div>
                         <span class="actions flex flex-start">
-                            <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce"
-                                    style="color: var(#B1B1B1);"></i></a>
+                            <a href=""><i class="fa-solid fa-magnifying-glass fa-bounce" style="color: var(#B1B1B1);"></i></a>
                             <a href=""><i class="fa-solid fa-paperclip"></i></a>
                             <a href=""><i class="fa-solid fa-ellipsis-vertical" style="color: #B1B1B1;"></i></a>
                         </span>
@@ -116,15 +115,12 @@
                 <!-- /header right -->
 
                 <!-- Main window CHAT -->
-                <div class="window-chat">
-                    <div class="chat-container flex flex-column">
-                        <div class="messaggi flex " v-for="elemento in currentMessage"
+                <div  class="window-chat" @click="hideMenu(elemento)">
+                    <div class="chat-container flex flex-column" >
+                        <div class="messaggi flex" v-if="currentMessage.length > 0" v-for="elemento in currentMessage"  
                             :class="elemento.status === 'sent' ? 'green-message' : 'white-message' ">
                             <p>{{ elemento.message }} </p>
-                            <span class="ultimate"> {{elemento.date.substring(11).slice(0,-3)}}</span>
-                            <!-- al click mi inverte una condizione booleana settata di defaul false e inserito come nuova key
-                            all'interno di array messages, c'è poi un mouseleave che mi resetta questa condizione a false
-                            per non farlo ri apparire senza che io clicchi effettivamente sullo chevron -->
+                            <span class="ultimate">{{ elemento.date.substring(11).slice(0,-3) }}</span>
                             <span @click="toggleMenu(elemento)" class="chevron-span" >
                                 <i class="fa-solid fa-chevron-down chevron" style="color: #bcbfc2;"></i>
                                 <ul v-if="elemento.showMenu" class="minimenu"  @mouseleave="hideMenu(elemento)">
@@ -133,6 +129,8 @@
                                 </ul>
                             </span>
                         </div>
+                        <h2 v-else class="no-messages">Nessun messaggio presente</h2>
+                        
                     </div>
                 </div>
                 <!-- /Main window CHAT -->
